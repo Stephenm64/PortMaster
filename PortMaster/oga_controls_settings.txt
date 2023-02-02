@@ -1,7 +1,7 @@
 back = esc
 start = enter
 a = enter
-b = enter
+b = space
 x = \"
 y = \"
 l1 = pageup

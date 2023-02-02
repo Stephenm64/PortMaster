@@ -49,6 +49,7 @@ if [ -f "/etc/os-release" ]; then
 fi
 
 $ESUDO chmod 666 /dev/tty0
+$ESUDO graphics 0
 export TERM=linux
 export XDG_RUNTIME_DIR=/run/user/$UID/
 printf "\033c" > /dev/tty0
@@ -92,6 +93,9 @@ elif [[ -e "/dev/input/by-path/platform-odroidgo3-joypad-event-joystick" ]]; the
   if [ $(cat "/storage/.config/.OS_ARCH") == "RG552" ]; then
     power='(?<=Title_P=\").*?(?=\")'
   fi
+elif [[ -e "/dev/input/by-path/platform-gou_joypad-event-joystick" ]]; then
+  param_device="ogu"
+	hotkey="F1/Select"
 elif [[ -e "/dev/input/by-path/platform-singleadc-joypad-event-joystick" ]]; then
   param_device="rg552"
   $ESUDO setfont /usr/share/consolefonts/Lat7-Terminus20x10.psf.gz
@@ -316,6 +320,7 @@ userExit() {
   fi
   dialog --clear
   printf "\033c" > /dev/tty0
+  $ESUDO graphics 1
   exit 0
 }
 SetColorScheme() {
@@ -505,5 +510,5 @@ TopLevel() {
   done
 }
 
-UpdateCheck
+#UpdateCheck
 TopLevel

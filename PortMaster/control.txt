@@ -117,6 +117,10 @@ elif [[ -e "/dev/input/by-path/platform-odroidgo3-joypad-event-joystick" ]]; the
           sed -i 's/back:b14/back:b12/; s/guide:b12/guide:b16/; s/guide:b14/guide:b16/; s/start:b15/start:b13/; s/leftstick:b16/leftstick:b14/; s/rightstick:b17/rightstick:b15/' ${controlfolder}/gamecontrollerdb.txt
         fi
       fi
+elif [[ -e "/dev/input/by-path/platform-gou_joypad-event-joystick" ]]; then
+      DEVICE="190000004b4800000012000000010000"
+      param_device="ogu"
+      export HOTKEY="guide"
 elif [[ -e "/dev/input/by-path/platform-gameforce-gamepad-event-joystick" ]]; then
       DEVICE="19000000030000000300000002030000"
       param_device="chi"
