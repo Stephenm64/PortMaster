@@ -118,7 +118,7 @@ elif [[ -e "/dev/input/by-path/platform-odroidgo3-joypad-event-joystick" ]]; the
         fi
       fi
 elif [[ -e "/dev/input/by-path/platform-gou_joypad-event-joystick" ]]; then
-      DEVICE="190000004b4800000012000000010000"
+      DEVICE="190000004b4800000010000000010000"
       param_device="ogu"
       export HOTKEY="guide"
 elif [[ -e "/dev/input/by-path/platform-gameforce-gamepad-event-joystick" ]]; then
